@@ -9,20 +9,28 @@
     
     <script>
         function omikuji (){
-            var dice = Math.floor(Math.random() * 3);
+            var dice = Math.floor(Math.random() * 4);
             var image_name;
             if (dice == 0) {
                 image_name = "omikuji-daikichi.png";
             } else if  (dice == 1) {
                 image_name = "omikuji-chuukichi.png";
-            } else {
+            } else if (dice == 2){
                 image_name = "omikuji-hei.png";
+            }else{
+              image_name = "omikuji-kyou.png";
             }
         
             document.getElementById("saisyo").style["display"] = "none";
             document.getElementById("kekka").src = "images/" + image_name;
             document.getElementById("kekka").style["display"] = "inline";
             document.getElementById("button").src = "images/omikuji-btn-yarinaosu.png";
+
+            ncmbController.sendScore(dice);
+
+            ncmbController.init(screenSize);
+
+            
         }
     </script>
     <script src="keys.js"></script>

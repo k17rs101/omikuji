@@ -26,9 +26,33 @@
             document.getElementById("kekka").style["display"] = "inline";
             document.getElementById("button").src = "images/omikuji-btn-yarinaosu.png";
 
+            document.getElementById("button2").src = "images/item00.png";
+
+            //document.getElementById("button").src = "images/item.png";
+
             ncmbController.sendScore(dice);
 
             ncmbController.init(screenSize);
+            
+        }
+
+        function omikuji2 (){
+            var image_name;
+            var dice00 = Math.floor(Math.random() *3);
+
+            if (dice00 < 1) {
+                item_name = "item.png";
+            } else if(dice00 == 1) {
+                item_name = "gorilla.png";
+            }else{
+              item_name = "kami.png";
+            }
+
+            document.getElementById("saisyo").style["display"] = "none";
+            document.getElementById("kekka").src = "images/" + item_name;
+            document.getElementById("kekka").style["display"] = "inline";
+            document.getElementById("button").src = "images/omikuji-btn-yarinaosu.png";
+            document.getElementById("button2").src = "images/item00.png";
 
             
         }
@@ -56,9 +80,16 @@
 
         #bottombar {
             position: absolute;
-            bottom: 30px;
+            bottom: 60px;
             width: 100%;
         }
+
+        #bottombar1 {
+            position: absolute;
+            bottom: 1px;
+            width: 90%;
+        }
+
     </style>
 </head>
 <body>
@@ -66,8 +97,15 @@
         <img id="saisyo" src="images/omikuji-box.png" />
         <img id="kekka" style="display : none;"/>
     </div>
+
     <div id="bottombar">
         <img id="button" src="images/omikuji-btn-hajimeru.png" onclick="omikuji()">
+
+        
+    </div>
+
+    <div id="bottombar1">
+        <img id="button2" src="images/item00.png" onclick="omikuji2()">
     </div>
 </body>
 </html>
